@@ -1,0 +1,15 @@
+.nav, .pagination, .carousel, .panel-title a {
+	cursor: pointer;
+}
+
+#tag-line {
+	color: white;
+	background-color: #FF6347;
+}
+
+#welcome {
+	color: #FF6347;
+}
+
+
+

@@ -1,0 +1,47 @@
+<!doctype html>
+<!-- use the module created in app.js -->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>MEAN Tea App</title>
+    <meta name="description" content="Galvanize Full Stack self-paced Angular. Unit 2, Part 8: MEAN Tea App">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.4/lumen/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body ng-app="teaApp" class="container">
+
+  <header>
+    <div class="page-header">
+      <h3 id="tag-line" class="text-center">Guaranteed Awesome!</h3>
+      <h1 id="welcome">Welcome to MEAN Tea!</h1>
+    </div>
+
+    <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+          <li><a href="#/">Home</a></li>
+          <li><a href="#/about">About</a></li>
+          <li><a href="#/contact">Contact</a></li>
+        </ul>
+    </nav>
+  </header>
+
+  <div class="clearfix"></div>
+
+  <div>
+    <div ng-view></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.js"></script>
+  <script src="js/ui-bootstrap-tpls-0.13.3.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/services.js"></script>
+</body>
+
+</html>

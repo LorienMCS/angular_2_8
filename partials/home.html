@@ -1,0 +1,35 @@
+<h1>This will be the home page</h1>
+	<div class="row">
+    <span class="pull-right">
+      <select ng-model="searchCategory">
+        <option ng-repeat="category in categories">{{category}}</option>
+      </select>
+    </span>
+	</div>
+
+  <div class="clearfix"></div>
+
+  <div ng-repeat="tea in teas | filter:searchText | orderBy:sortChoice">
+    <div class="row postBox">
+      <div class="col-md-3">
+        <img ng-src="{{tea.imageUrl}}" alt="photo of {{post.title}}" class="img-responsive" id="postImg"/>
+      </div>
+      <div class="col-md-9">
+        <div class="row">
+          <p>title</p>
+        </div>
+        <div class="row">
+          <p class="text-right">By {{post.author}}</p>
+        </div>
+        <div class="row">
+          <p id="description">{{post.desc}}</p>
+        </div>
+        <div class="row">
+          <p>{{post.date}}</p>
+          <p><strong>{{comment.author}}</strong> - {{comment.text}}</p>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div> <!-- closing div for ng-repeat -->
+
