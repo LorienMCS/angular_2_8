@@ -1,35 +1,64 @@
-<h1>This will be the home page</h1>
 	<div class="row">
+		<p>Search By Category:
+		<select ng-model="searchCategory">
+			<option></option>
+		  <option ng-repeat="category in categories">{{category}}</option>
+		</select>
+		<label>Search By Name: <input ng-model="search.name"></label>
     <span class="pull-right">
-      <select ng-model="searchCategory">
-        <option ng-repeat="category in categories">{{category}}</option>
-      </select>
-    </span>
+      <button type="submit" ng-click="" class="btn btn-warning"><strong>Checkout</strong> | Bag: 
+      	<span ng-if="cart.length==0">Empty</span>
+  			<span ng-if="cart.length>0">{{cart.length}}</span>
+      </button>
+    </span></p>
 	</div>
 
   <div class="clearfix"></div>
 
-  <div ng-repeat="tea in teas | filter:searchText | orderBy:sortChoice">
-    <div class="row postBox">
-      <div class="col-md-3">
-        <img ng-src="{{tea.imageUrl}}" alt="photo of {{post.title}}" class="img-responsive" id="postImg"/>
-      </div>
-      <div class="col-md-9">
-        <div class="row">
-          <p>title</p>
-        </div>
-        <div class="row">
-          <p class="text-right">By {{post.author}}</p>
-        </div>
-        <div class="row">
-          <p id="description">{{post.desc}}</p>
-        </div>
-        <div class="row">
-          <p>{{post.date}}</p>
-          <p><strong>{{comment.author}}</strong> - {{comment.text}}</p>
-        </div>
-      </div>
-      <div class="clearfix"></div>
-    </div>
-  </div> <!-- closing div for ng-repeat -->
+  <table class="table table-striped table-bordered">
+  	<thead>
+  		<tr>
+  			<th>Tea</th>
+  			<th>Information</th>
+  			<th>Sort By Price:
+  				<select ng-model="sortChoice">
+            <option value="-price">Highest</option>
+            <option value="price">Lowest</option>
+          </select>
+        </th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  		<tr ng-repeat="tea in teas | filter:searchCategory | filter:search | orderBy:sortChoice">
+  			<td class="col-md-3"><img ng-src="{{tea.imageUrl}}" alt="photo of {{tea.name}}" class="img-responsive"/></td>
+  			<td class="col-md-6">
+  				<h3>{{tea.name}}</h3>
+  				<p><strong>Price: </strong>{{tea.price/100 | currency}}</p>
+  				<p><strong>Caffeine Scale: </strong>{{tea.caffeineScale}}</p>
+  				<p><strong>Ingredients: </strong>{{tea.ingredients}}</p>
+  				<p><strong>Rating: </strong>{{tea.rating}}</p>
+  				<p><strong>In Stock?: </strong>
+  					<span ng-if="tea.inStock==true">Yes</span>
+  					<span ng-if="tea.inStock==false">Out of Stock</span>
+  				</p>
+  				<p><strong>Categories: </strong>
+  					<ul ng-repeat="category in tea.categories">
+  						<li>{{category}}</li>
+  					</ul>
+  				</p>
+  			</td>
+  			<td class="col-md-3">
+  				<h3>Quantity:
+  					<span>
+  						<select ng-model="quantity">
+								<option></option>
+		  					<option ng-repeat="qty in quantities">{{qty}}</option>
+							</select>
+							<button type="submit" ng-click="" class="btn btn-success">Add to Cart</button>
+						</span>
+					</h3>
+				</td>
+  		</tr>
+  	</tbody>
+  </table>
 
