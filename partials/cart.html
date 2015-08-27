@@ -1,4 +1,4 @@
-<h3>My Shopping Cart<span class="pull-right">Order Total:</span></h3>
+<h3>My Shopping Cart<span class="pull-right">Order Total: {{total | currency}}</span></h3>
 
 
   <div class="clearfix"></div>
@@ -6,46 +6,33 @@
   <table class="table table-striped table-bordered">
   	<thead>
   		<tr>
-  			<th>Tea</th>
-  			<th>Information</th>
-  			<th>Sort By Price:
-  				<select ng-model="sortChoice">
-            <option value="-price">Highest</option>
-            <option value="price">Lowest</option>
-          </select>
-        </th>
+  			<th>Product</th>
+  			<th>Quantity</th>
+  			<th>Subtotal</th>
+  			<th></th>
   		</tr>
   	</thead>
   	<tbody>
-  		<tr ng-repeat="tea in teas | filter:searchCategory | filter:search | orderBy:sortChoice">
-  			<td class="col-md-3"><img ng-src="{{tea.imageUrl}}" alt="photo of {{tea.name}}" class="img-responsive"/></td>
-  			<td class="col-md-6">
+  		<tr ng-repeat="tea in cart">
+  			<td class="col-md-5">
   				<h3>{{tea.name}}</h3>
-  				<p><strong>Price: </strong>{{tea.price/100 | currency}}</p>
-  				<p><strong>Caffeine Scale: </strong>{{tea.caffeineScale}}</p>
+  				<img ng-src="{{tea.imageUrl}}" alt="photo of {{tea.name}}" class="img-responsive"/>
+					<p><strong>Caffeine Scale: </strong>{{tea.caffeineScale}}</p>
   				<p><strong>Ingredients: </strong>{{tea.ingredients}}</p>
   				<p><strong>Rating: </strong>{{tea.rating}}</p>
-  				<p><strong>In Stock?: </strong>
-  					<span ng-if="tea.inStock==true">Yes</span>
-  					<span ng-if="tea.inStock==false">Out of Stock</span>
-  				</p>
-  				<p><strong>Categories: </strong>
-  					<ul ng-repeat="category in tea.categories">
-  						<li>{{category}}</li>
-  					</ul>
-  				</p>
   			</td>
   			<td class="col-md-3">
-  				<h3>Quantity:
-  					<span>
-  						<select ng-model="tea.newQty">
-								<option></option>
-		  					<option ng-repeat="qty in quantities">{{qty}}</option>
-							</select>
-							<button type="submit" ng-click="addToCart(tea, tea.newQty)" class="btn btn-success">Add to Cart</button>
-						</span>
-					</h3>
+  				<span ng-if="!canEdit">{{tea.quantity}}</span>
+  				<span ng-if="canEdit"><input type="number" min="0" ng-model="tea.newQty" ng-click="editQty(tea, tea.newQty)"></span>
+  			</td>
+  			<td class="col-md-2">
+  				<h4>{{tea.subtotal | currency}}</h4>
 				</td>
+				<td class="col-md-2">
+				<button type="submit" ng-show="edit" ng-click="edit(tea)" class="btn btn-warning">Edit</button>
+				<button type="submit" ng-hide="save" ng-click="saveTotal(tea)" class="btn btn-success">Save</button>
+				<button type="submit" ng-click="" class="btn btn-danger">Remove</button>
+  			</td>
   		</tr>
   	</tbody>
   </table>

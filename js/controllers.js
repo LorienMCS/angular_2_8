@@ -44,7 +44,42 @@ app.controller("TeaController", ["$scope", "$http", "CartService", function($sco
 
 app.controller("CartController", ["$scope", "CartService", function($scope, CartService) {
 	$scope.cart = CartService.cart;
-	console.log($scope.cart);
+	$scope.newTotal = 0;
+	$scope.total = 0;
+	$scope.edit = true;
+	$scope.save = true;
+	$scope.canEdit = false;
+
+	$scope.cart.forEach(function(tea){
+			$scope.total += tea.subtotal;
+	});
+
+	$scope.edit = function(tea) {
+		this.edit = false;
+		this.save = false;
+		this.canEdit = true;
+	};
+
+	$scope.editQty = function(tea, newQty) {
+		$scope.cart.forEach(function(cartTea){
+			if(cartTea._id===tea._id) {
+				tea.quantity = parseInt(tea.newQty, 10);
+				tea.subtotal = (tea.price/100 * tea.quantity);
+				cartTea.subtotal = tea.subtotal;
+			};
+		});
+	};
+
+	$scope.saveTotal = function(tea) {
+		$scope.cart.forEach(function(cartTea){
+			$scope.newTotal += cartTea.subtotal;
+		});
+		$scope.total = $scope.newTotal;
+		$scope.newTotal = 0;
+		this.edit = true;
+		this.save = true;
+		this.canEdit = false;
+	};
 
 }]);
 
