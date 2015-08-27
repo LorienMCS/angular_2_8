@@ -25,25 +25,33 @@ app.controller("TeaController", ["$scope", "$http", "CartService", function($sco
 		if(tea.newQty==undefined){
 			tea.newQty = 1;
 		};
-		if($scope.cart.length===0){
+		if($scope.cart.length===0 || tea.quantity == undefined){
 			tea.quantity = tea.newQty;
 			$scope.cart.push(tea);
 		} else {
 			$scope.cart.forEach(function(cartTea){
-				if(cartTea._id==tea._id) {
-					tea.quantity = parseInt(cartTea.quantity,10) + parseInt(tea.newQty,10);
-				} else {
-					tea.quantity = tea.newQty;
-					$scope.cart.push(tea);
+				if(cartTea._id===tea._id) {
+					tea.quantity = parseInt(tea.quantity, 10) + parseInt(tea.newQty, 10);
 				};
 			});
 		};
+		console.log($scope.cart);
 	};
 
 }]);
 
 
-app.controller("CartController", ["$scope", function($scope) {
+app.controller("CartController", ["$scope", "CartService", function($scope, CartService) {
+	$scope.cart = CartService.cart;
+	console.log($scope.cart);
+
+	$scope.getSubtotal = function() {
+		$scope.cart.forEach(function(tea){
+			tea.subtotal = (tea.price/100 * tea.quantity);
+			console.log(tea.subtotal);
+		});
+	};
+	console.log($scope.cart);
 
 }]);
 

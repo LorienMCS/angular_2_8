@@ -9,6 +9,8 @@
     <span class="pull-right">
       <a href="#/cart"><button type="submit" class="btn btn-warning"><strong>Checkout</strong> | Bag:
       	<span ng-if="cart.length==0">Empty</span>
+        <!-- cart.length only shows number of types of teas in cart;
+        not actual number of teas in cart -->
   			<span ng-if="cart.length>0">{{cart.length}}</span>
       </button></a>
     </span></p>
