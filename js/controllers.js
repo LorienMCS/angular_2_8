@@ -4,7 +4,6 @@ app.controller("TeaController", ["$scope", "$http", "CartService", function($sco
 
 	$http.get('tea.json').then(function(object){
 		$scope.teas = object.data;
-		console.log($scope.teas);
 		$scope.categories = [];
 		// loop through teas array
 		$scope.teas.forEach(function(tea) {
@@ -21,6 +20,16 @@ app.controller("TeaController", ["$scope", "$http", "CartService", function($sco
 	},function(data){
 		$scope.localErr = "not able to get data";
 	});
+
+	$scope.addToCart = function(tea, quantity) {
+		if(quantity==undefined){
+			quantity = 1;
+		};
+		// TODO: need to account for teas already in cart
+		// and add to their total if already there
+		$scope.cart.push({"tea": tea, "quantity": quantity});
+		console.log($scope.cart);
+	};
 
 }]);
 
