@@ -1,5 +1,6 @@
 	<div class="row">
 		<p>Search By Category:
+    <!-- This search looks at categories other than category; it would be good to get it to be more specific (results include "hot" in ingredients) -->
 		<select ng-model="searchCategory">
 			<option></option>
 		  <option ng-repeat="category in categories">{{category}}</option>
@@ -50,11 +51,11 @@
   			<td class="col-md-3">
   				<h3>Quantity:
   					<span>
-  						<select ng-model="quantity">
+  						<select ng-model="tea.newQty">
 								<option></option>
 		  					<option ng-repeat="qty in quantities">{{qty}}</option>
 							</select>
-							<button type="submit" ng-click="addToCart(tea, quantity)" class="btn btn-success">Add to Cart</button>
+							<button type="submit" ng-click="addToCart(tea, tea.newQty)" class="btn btn-success">Add to Cart</button>
 						</span>
 					</h3>
 				</td>

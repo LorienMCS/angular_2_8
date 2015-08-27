@@ -21,14 +21,23 @@ app.controller("TeaController", ["$scope", "$http", "CartService", function($sco
 		$scope.localErr = "not able to get data";
 	});
 
-	$scope.addToCart = function(tea, quantity) {
-		if(quantity==undefined){
-			quantity = 1;
+	$scope.addToCart = function(tea, newQty) {
+		if(tea.newQty==undefined){
+			tea.newQty = 1;
 		};
-		// TODO: need to account for teas already in cart
-		// and add to their total if already there
-		$scope.cart.push({"tea": tea, "quantity": quantity});
-		console.log($scope.cart);
+		if($scope.cart.length===0){
+			tea.quantity = tea.newQty;
+			$scope.cart.push(tea);
+		} else {
+			$scope.cart.forEach(function(cartTea){
+				if(cartTea._id==tea._id) {
+					tea.quantity = parseInt(cartTea.quantity,10) + parseInt(tea.newQty,10);
+				} else {
+					tea.quantity = tea.newQty;
+					$scope.cart.push(tea);
+				};
+			});
+		};
 	};
 
 }]);
