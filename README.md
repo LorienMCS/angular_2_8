@@ -1,3 +1,7 @@
+#####:sunny: :palm_tree: :evergreen_tree:[Demo of my completed assignment](http://lorienmcs.github.io/angular_2_8/#/):evergreen_tree: :palm_tree: :sunny:
+
+#####This was a project for the 18th week of the Full Stack Program at [Galvanize](http://www.galvanize.com/courses/full-stack/).
+
 # Angular Shopping Cart App
 
 ### Shopping Cart Should Have the Following Specs:
