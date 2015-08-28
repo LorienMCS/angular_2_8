@@ -27,7 +27,7 @@
     {
         "_id": "55c8ee82152165d244b98302",
         "name": "Flexner white tea",
-        "ingredients": "hot sauce, iron, beetle nut, fresco, blarney, raw mashed potato",
+        "ingredients": "miscellaneous sauce, iron, beetle nut, fresco, blarney, raw mashed potato",
         "caffeineScale": 38,
         "price": 4991,
         "inStock": true,
@@ -63,7 +63,7 @@
     {
         "_id": "55c8ee82152165d244b98305",
         "name": "Topflighter malt",
-        "ingredients": "botox, toast, cream of 'cream of 'cream of cream'', kitchen scraps, beef, aligator tongue, lawn clippings",
+        "ingredients": "botox, toast, cream of 'cream of 'cream of cream'', kitchen scraps, beef, alligator tongue, lawn clippings",
         "caffeineScale": 241,
         "price": 4486,
         "inStock": true,
@@ -111,7 +111,7 @@
     {
         "_id": "55c8ee82152165d244b98309",
         "name": "Angular mix",
-        "ingredients": "hot sauce, lawn clippings, fennel, parsley, quinine",
+        "ingredients": "miscellaneous sauce, lawn clippings, fennel, parsley, quinine",
         "caffeineScale": 196,
         "price": 4158,
         "inStock": true,

@@ -46,7 +46,7 @@ app.controller("CartController", ["$scope", "CartService", function($scope, Cart
 	$scope.cart = CartService.cart;
 	$scope.newTotal = 0;
 	$scope.total = 0;
-	$scope.edit = true;
+	$scope.editing = true;
 	$scope.save = true;
 	$scope.canEdit = false;
 
@@ -55,7 +55,8 @@ app.controller("CartController", ["$scope", "CartService", function($scope, Cart
 	});
 
 	$scope.edit = function(tea) {
-		this.edit = false;
+		tea.newQty = 0;
+		this.editing = false;
 		this.save = false;
 		this.canEdit = true;
 	};
@@ -76,9 +77,23 @@ app.controller("CartController", ["$scope", "CartService", function($scope, Cart
 		});
 		$scope.total = $scope.newTotal;
 		$scope.newTotal = 0;
-		this.edit = true;
+		this.editing = true;
 		this.save = true;
 		this.canEdit = false;
+	};
+
+	$scope.remove = function(tea) {
+		var cartArr = $scope.cart;
+		for(var i = 0; i < cartArr.length; i++) {
+			if(cartArr[i]._id===tea._id) {
+				cartArr.splice(i, 1);
+			};
+		};
+		cartArr.forEach(function(cartTea){
+			$scope.newTotal += cartTea.subtotal;
+		});
+		$scope.total = $scope.newTotal;
+		$scope.newTotal = 0;
 	};
 
 }]);

@@ -23,15 +23,15 @@
   			</td>
   			<td class="col-md-3">
   				<span ng-if="!canEdit">{{tea.quantity}}</span>
-  				<span ng-if="canEdit"><input type="number" min="0" ng-model="tea.newQty" ng-click="editQty(tea, tea.newQty)"></span>
+  				<span ng-if="canEdit"><input type="number" value="{{tea.newQty}}" min="0" ng-model="tea.newQty" ng-click="editQty(tea, tea.newQty)"></span>
   			</td>
   			<td class="col-md-2">
   				<h4>{{tea.subtotal | currency}}</h4>
 				</td>
 				<td class="col-md-2">
-				<button type="submit" ng-show="edit" ng-click="edit(tea)" class="btn btn-warning">Edit</button>
+				<button type="submit" ng-show="editing" ng-click="edit(tea)" class="btn btn-warning">Edit Item</button>
 				<button type="submit" ng-hide="save" ng-click="saveTotal(tea)" class="btn btn-success">Save</button>
-				<button type="submit" ng-click="" class="btn btn-danger">Remove</button>
+				<span class="pull-right"><button type="submit" ng-click="remove(tea)" class="btn btn-danger">Remove</button></span>
   			</td>
   		</tr>
   	</tbody>
