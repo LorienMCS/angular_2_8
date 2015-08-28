@@ -1,5 +1,4 @@
-<h3>My Shopping Cart<span class="pull-right">Order Total: {{total | currency}}</span></h3>
-
+	<h3>My Shopping Cart<span class="pull-right">Order Total: {{total | currency}}</span></h3>
 
   <div class="clearfix"></div>
 
@@ -37,4 +36,7 @@
   	</tbody>
   </table>
 
+  <div class="clearfix"></div>
 
+	<div class="row">
+	<span class="pull-right"><button type="submit" ng-if="!isEmpty" class="btn btn-success">Place Order</button></span>

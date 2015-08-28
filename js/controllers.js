@@ -44,11 +44,16 @@ app.controller("TeaController", ["$scope", "$http", "CartService", function($sco
 
 app.controller("CartController", ["$scope", "CartService", function($scope, CartService) {
 	$scope.cart = CartService.cart;
+	$scope.isEmpty = false;
 	$scope.newTotal = 0;
 	$scope.total = 0;
 	$scope.editing = true;
 	$scope.save = true;
 	$scope.canEdit = false;
+
+	if($scope.cart.length===0){
+		$scope.isEmpty = true;
+	};
 
 	$scope.cart.forEach(function(tea){
 			$scope.total += tea.subtotal;
@@ -94,6 +99,9 @@ app.controller("CartController", ["$scope", "CartService", function($scope, Cart
 		});
 		$scope.total = $scope.newTotal;
 		$scope.newTotal = 0;
+		if($scope.cart.length===0){
+			$scope.isEmpty = true;
+		};
 	};
 
 }]);
