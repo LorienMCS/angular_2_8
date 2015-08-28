@@ -12,7 +12,7 @@ app.config(function($routeProvider) {
       templateUrl: 'partials/contact.html',
       controller: 'ContactController'
     }).when('/cart', {
-      templateUrl: '/partials/cart.html',
+      templateUrl: 'partials/cart.html',
       controller: 'CartController'
     }).otherwise({
       redirectTo: '/'
