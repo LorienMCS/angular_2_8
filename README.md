@@ -1,6 +1,6 @@
 #####:sunny: :palm_tree: :evergreen_tree:[Demo of my completed assignment](http://lorienmcs.github.io/angular_2_8/#/):evergreen_tree: :palm_tree: :sunny:
 
-#####This was a project for the 18th week of the Full Stack Program at [Galvanize](http://www.galvanize.com/courses/full-stack/). Instructions were created by assistant instructor [Zubair Desai](https://github.com/zubaird), who also supplied the JSON data.
+#####This was a project for the 18th week of the Full Stack Program at [Galvanize](http://www.galvanize.com/courses/full-stack/). Instructions were created by assistant instructor [Zubair Desai](https://github.com/zubaird), who also supplied the JSON data. The assignment ended at the "place order" button.
 
 # Angular Shopping Cart App
 
