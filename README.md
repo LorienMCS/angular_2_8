@@ -2,7 +2,7 @@
 
 #####This was a project for the 18th week of the Full Stack Program at [Galvanize](http://www.galvanize.com/courses/full-stack/). Instructions were created by assistant instructor [Zubair Desai](https://github.com/zubaird), who also supplied the JSON data. The assignment ended at the "place order" button.
 
-# Angular Shopping Cart App
+## Angular Shopping Cart App
 
 ### Shopping Cart Should Have the Following Specs:
 - Search by name
